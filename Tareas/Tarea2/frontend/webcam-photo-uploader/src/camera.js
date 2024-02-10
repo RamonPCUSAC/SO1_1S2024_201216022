@@ -31,14 +31,29 @@ function Camera(){
         const base64Image = canvas.toDataURL();
         console.log(base64Image);
         // Enviar la imagen al servidor
-        axios.post('http://localhost:3001/load-image', {
+        /* axios.post('http://localhost:3001/load-image', {
           imageData: base64Image,
         }).then(response => {
           console.log(response.data.message);
         }).catch(error => {
           console.error('Error al subir la imagen:', error);
-        });
-      };
+        }); */
+
+        fetch('http://localhost:3001/load-image', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            imageData: base64Image
+          })
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+          })
+          .catch(error => console.error('Error al insertar imagen', error));
+          };
     } catch (error) {
       console.error('Error al subir la imagen:', error);
     }

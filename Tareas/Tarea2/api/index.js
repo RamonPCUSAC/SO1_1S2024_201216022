@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // Conexión a MongoDB (asegúrate de tener MongoDB instalado y corriendo)
-mongoose.connect('mongodb://localhost:27017/tarea2', {
+mongoose.connect('mongodb://mongo:27017/tarea2', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -28,7 +28,8 @@ app.use(express.json());
 app.post('/load-image', async (req, res) => {
   try {
     const { imageData } = req.body;
-
+    console.log("esta es la data ")
+    console.log(imageData)
     if (!imageData) {
       return res.status(400).json({ error: 'Es necesario cargar la imagen' });
     }
@@ -39,7 +40,7 @@ app.post('/load-image', async (req, res) => {
     return res.status(201).json({ message: 'Imagen guardada exitosamente.' });
   } catch (error) {
     console.error('Error al cargar la imagen:', error);
-    return res.status(500).json({ error: 'Error en el servidor.' });
+    return res.status(500).json({ error: 'Error en el servidor API.' });
   }
 });
 

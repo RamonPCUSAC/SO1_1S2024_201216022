@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: "mongo:4"
+    container_name: 'mongo'
+    restart: always
+    volumes:
+      - volume_mongo:/data/db      
+    ports:
+      - "27017:27017"
+  backend:
+    image: "api"
+    container_name: 'BackendNodeJS'
+    restart: always
+    ports:
+      - "3001:3001"
+  frontend:
+    image: 'uploader-page'
+    container_name: 'frontReact'
+    ports:
+      - '3000:3000'
+volumes:
+  volume_mongo:
