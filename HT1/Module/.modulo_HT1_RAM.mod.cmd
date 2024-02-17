@@ -1,0 +1,1 @@
+cmd_/home/ramon/Desktop/usac/SO1_1S2024_201216022/HT1/Module/modulo_HT1_RAM.mod := { echo  /home/ramon/Desktop/usac/SO1_1S2024_201216022/HT1/Module/modulo_HT1_RAM.o;  echo; } > /home/ramon/Desktop/usac/SO1_1S2024_201216022/HT1/Module/modulo_HT1_RAM.mod
